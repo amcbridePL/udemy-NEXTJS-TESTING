@@ -1,0 +1,81 @@
+
+> cypress:build
+> npm run build:test && npm run cypress:start
+
+
+> build:test
+> npm run db:reset && export NODE_ENV="test" && next build
+
+
+> db:reset
+> source scripts/reset-db.sh
+
+info  - Loaded env from /Users/aidanmcbride/Desktop/Dev-Learning/Nextjs/udemy-NEXTJS-TESTING/base-concert-venue/.env.test.local
+info  - Checking validity of types...
+
+./lib/db/constants.ts
+5:3  Warning: Replace `··if` with `if·`  prettier/prettier
+6:5  Warning: Replace `····throw·new·Error('Missing·process.env.DB_PATH'` with `throw·new·Error("Missing·process.env.DB_PATH"`  prettier/prettier
+7:1  Warning: Replace `····` with `··`  prettier/prettier
+9:1  Warning: Delete `··`  prettier/prettier
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+info  - Creating an optimized production build...
+info  - Compiled successfully
+info  - Collecting page data...
+info  - Generating static pages (0/12)
+info  - Generating static pages (3/12)
+info  - Generating static pages (6/12)
+info  - Generating static pages (9/12)
+info  - Generating static pages (12/12)
+info  - Finalizing page optimization...
+
+Page                                       Size     First Load JS
+┌ ○ /                                      637 B           145 kB
+├   /_app                                  0 B             139 kB
+├ ○ /404                                   192 B           140 kB
+├ λ /api/auth/[...nextauth]                0 B             139 kB
+├ λ /api/bands                             0 B             139 kB
+├ λ /api/reservations/[reservationId]      0 B             139 kB
+├ λ /api/shows                             0 B             139 kB
+├ λ /api/shows/[showId]                    0 B             139 kB
+├ λ /api/users                             0 B             139 kB
+├ λ /api/users/[userId]/reservations       0 B             139 kB
+├ ○ /auth/signin                           11.2 kB         151 kB
+├ ● /bands                                 632 B           140 kB
+├ ● /bands/[bandId]                        773 B           145 kB
+├   ├ /bands/0
+├   ├ /bands/1
+├   └ /bands/2
+├ ○ /confirmation/[reservationId]          1.01 kB         146 kB
+├ ○ /reservations/[showId]                 7.85 kB         160 kB
+├ ● /shows                                 1.34 kB         153 kB
+└ ○ /user                                  1.56 kB         154 kB
++ First Load JS shared by all              139 kB
+  ├ chunks/framework-5f4595e5518b5600.js   42 kB
+  ├ chunks/main-779b41245c009d2a.js        28.3 kB
+  ├ chunks/pages/_app-035bab8482d9df4d.js  67.9 kB
+  └ chunks/webpack-42cdea76c8170223.js     1.07 kB
+
+λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
+
+
+> cypress:start
+> start-server-and-test --expect 200 'npm run start:test' http://127.0.0.1:3000 'cypress:open'
+
+1: starting server using command "npm run start:test"
+and when url "[ 'http://127.0.0.1:3000' ]" is responding with HTTP status code 200
+running tests using command "npm run cypress:open"
+
+
+> start:test
+> export NODE_ENV"test" && next start
+
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+info  - Loaded env from /Users/aidanmcbride/Desktop/Dev-Learning/Nextjs/udemy-NEXTJS-TESTING/base-concert-venue/.env.local
+
+> cypress:open
+> env-cmd -f .env.test.local cypress open
+
